@@ -8,7 +8,6 @@ import csv
 import requests
 import dash
 import os
-import arcgis
 import dash_bootstrap_components as dbc
 
 from tqdm import tqdm
@@ -510,9 +509,6 @@ TMMinmerge = pd.merge(Min, TMaxmerge, on=(['Id', 'FirstName', 'LastName', 'FullA
 fullMerge = pd.merge(Median, TMMinmerge, on=(['Id', 'FirstName', 'LastName', 'FullAdd']))
 
 print(fullMerge.info)
-
-# start fixing geocode/new service
-geo = arcgis.geocoding.batch_geocode(address=fullMerge["FullAdd"])
 
 
 # Pie
